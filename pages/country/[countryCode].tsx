@@ -5,6 +5,7 @@ import LoadingSpinner from "@/components/LoadingSpinner";
 import fetcher from "@/utils/fetcher";
 import { getName } from "country-list";
 import { useRouter } from "next/dist/client/router";
+import Head from "next/head";
 import useSWR from "swr";
 
 export const apiUrl = "https://www.trackcorona.live/api";
@@ -57,15 +58,20 @@ const CountryDetail = () => {
 
   const countryName = getName(countryCode as string);
 
+  console.log(countryName);
+
   const currentTravelData = travelData.data.filter(
     (location) => location.location === countryName
   )[0];
 
   return (
     <div>
+      <Head>
+        <title>{currentTravelData.location} | Covid-19-Tracker</title>
+      </Head>
       <main>
         <div className="max-w-2xl mx-auto px-4 md:px-0">
-          <div className="my-10 space-y-4">
+          <div className="space-y-4 py-10">
             <button onClick={() => router.back()}>Back</button>
 
             <CountryDetails

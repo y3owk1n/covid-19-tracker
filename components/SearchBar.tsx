@@ -45,8 +45,8 @@ const SearchBar = () => {
   }, [searchValue]);
 
   return (
-    <div className="w-screen h-screen grid place-items-center">
-      <div className="w-screen max-w-lg space-y-4">
+    <div className="w-full min-h-screen grid place-items-center">
+      <div className="w-full space-y-4">
         <div className="space-y-6 text-center">
           <div className="space-y-2">
             <h1 className="text-2xl font-bold text-white">Covid-19 Tracker</h1>

@@ -3,6 +3,7 @@ import ErrorPage from "@/components/ErrorPage";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import fetcher from "@/utils/fetcher";
 import { useRouter } from "next/dist/client/router";
+import Head from "next/head";
 import useSWR from "swr";
 
 export const apiUrl = "https://www.trackcorona.live/api";
@@ -44,9 +45,12 @@ const CityDetail = () => {
 
   return (
     <div>
+      <Head>
+        <title>{decodeURI(cities as string)} | Covid-19-Tracker</title>
+      </Head>
       <main>
         <div className="max-w-2xl mx-auto px-4 md:px-0">
-          <div className="my-10 space-y-4">
+          <div className="py-10 space-y-4">
             <button onClick={() => router.back()}>Back</button>
             <CityDetails cityData={citiesData} />
           </div>
